@@ -1,0 +1,19 @@
+
+/* Stopp text under username */
+p.help-block {
+	display: none;
+}
+div#div_id_password1.form-group div ul li {
+	display: none;
+}
+
+div#div_id_new_password1.form-group div ul li {
+	display: none;
+}
+/* Edit profile remove password fields*/
+div#div_id_password.form-group label.control-label,
+div#id_password {
+	display: none;
+}
+
+/* Login page */

@@ -1,0 +1,24 @@
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+	/*background-color: #004080;*/
+	background-color: #0047b3;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav {
+	background-color: #0047b3;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #ffff00;
+    background-color: #0047b3;
+}
+
+.container-backen {
+	width: 100%;
+}
+
+footer.container-backend :{
+	background-color: #0047b3;
+}
+
+div.col-md-4.backend {
+	background-color: #0047b3;
+}

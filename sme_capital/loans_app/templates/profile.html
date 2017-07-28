@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<table class="table table-striped table-hover">
+			
+			<caption><h3>{{request.user.username.upper}} Profile</h3></caption>
+				<div class="useravatar">
+					{% if user.userprofile.image %}
+						<img src="{{user.userprofile.image.url}}" width="250" height="200">
+					{% endif %}
+				</div>
+				<br>
+				<ul class="nav nav-tab nav-menu" role='tablist'>
+					<li class="active">
+						<a class="btn btn-primary" href="{% url 'loans_app:profile' %}" data-toddle='tab'>
+							<i class=" fa fa-male"> Profile</i>
+						</a>
+					</li>
+					<br>
+					
+				</ul>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						First Name
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{user.first_name}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Last Name
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{user.last_name}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Address 1
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{user.userprofile.address}}
+					</td>
+				</tr>
+				
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						City
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{user.userprofile.city}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Post Code
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{user.userprofile.postcode}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Email
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{user.email}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Phone
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{user.userprofile.phone}}
+					</td>
+				</tr>		
+				
+		</table>
+		<ul class="nav nav-tab nav-menu" role='tablist'>
+			<li>
+				<a class="btn btn-success" 
+				href="{% url 'loans_app:edit_profile' %}" data-toddle='tab'>
+					<i class=" fa fa-key">Edit Profile</i>
+				</a>
+			</li>
+		</ul>
+		<br>
+	</div>
+	
+</div>
+{% endblock content %}
