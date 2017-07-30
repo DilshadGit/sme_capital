@@ -16,3 +16,9 @@ The last part of this test is display the data as JSON object using rest_framewo
 Notice:
 
 I have used slug to display the title in the url I could used just id or pk but slug more active. 
+
+
+There registered User:
+Username: admin, Password: _Admin_123
+Username: admin, Password: _Admin_123
+Username: admin, Password: _Admin_123
