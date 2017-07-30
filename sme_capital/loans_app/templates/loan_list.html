@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block page_title %} {% endblock %}
+
+{% block content %}
+<div class="row">
+	<br>
+	<br>
+	<div class="col-md-8">
+		{% for loan in loans_obj %}
+			<h3><b>Full Name:</b> {{request.user.first_name}} {{request.user.last_name}}</h3>
+
+			<p class="lead"><b>Loan Title:</b> {{loan.title}}</p>
+			<p class="lead"><b>Amount:</b> {{loan.amount}}</p>
+			<p class="lead"><b>Reference:</b> {{loan.reference}}</p>
+			<p class="lead"><b>Created Date:</b> {{loan.created_date}}</p>
+
+			<a href="{% url 'loans_app:detail_loan' slug=loan.slug %}">
+				<button type="button" class="btn btn-primary pull-right readmore">
+					More detail
+				</button>
+			</a>
+		<hr>		
+		{% endfor %}
+	</div>
+	<div class="col-md-4">
+		
+	</div>
+	{% if request.title.id is None %}
+	<div class="col-md-12">
+		<h3>Create Loan</h3>
+		<p>You are currently have no any loan if you want create new loan please follow the process</p>
+		<a href="{% url 'loans_app:create_loan' %}">
+			<button type="button" class="btn btn-primary">Create New loan</button>
+		</a>
+	</div>
+	{% else %}
+	{% endif %}
+</div>
+<br><br>
+{% endblock %}

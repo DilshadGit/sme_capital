@@ -22,18 +22,17 @@ class EditProfileForm(UserCreationForm):
 		exclude = ('password',)
 
 
-class LoanForm(forms.ModelForm):
+class BusinessLoanForm(forms.ModelForm):
 
 	class Meta:
 		model = BusinessLoan
 		fields = (
-			'full_name',
-			'address',
-			'city',
-			'postcode',
-			'phone',
-			'email',
-			'region',
-			'country',
+			'title',
+			'amount',
+			'start_date',
+			'end_date',
+			'repayment',
 			'status',
+			'reference',
+			'phone',
 		)

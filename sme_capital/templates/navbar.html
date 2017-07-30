@@ -20,11 +20,10 @@
 
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{# url 'control_panal:index' #}">Home</a></li>
-        <li><a href="{% url 'loans_app:create_loan' %}" class="">Loan</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="active"><a href="{% url 'control_panal:index' %}">Home</a></li>
+        <li><a href="{% url 'loans_app:list_loan' %}" class="">Loan</a></li>
+        <li><a href="#">History</a></li>
       </ul>
-      
 
       <ul class="nav navbar-nav navbar-right">
           
@@ -33,7 +32,7 @@
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{request.user.username.upper}} <span class="caret"></span>
             <i class=""></i> 
           </a>
-       
+            <!-- Nor mal user can have acces to own profile only -->
             <ul class="dropdown-menu">
             {% if not request.user.is_staff %}
               <li>
@@ -41,7 +40,10 @@
                   <i class="fa fa-user"></i> Profile
                 </a>
               </li>
-              {% endif %}
+            {% endif %}
+            <!-- End of basic user -->
+
+            <!-- user from the company can have access to cms page where can view create update and delete forms has been created -->
               {% if request.user.is_staff %}
               <li><a href="{# url 'control_panal:cms_page' #}" target="_blank">
                 <i class="fa fa-tasks"></i> CMS

@@ -1,0 +1,139 @@
+{% extends 'base.html' %} 
+ 
+
+{% block page_title %} {{instance.title}} {% endblock %} 
+
+{% block content %}
+<br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-8">
+		<table class="table table-striped table-hover">
+			
+			<caption>
+				<h3>
+				<b>User Profile: </b></h3></caption>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						First Name
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{user.first_name}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Last Name
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{user.last_name}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Title
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{instance.title}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Amount
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{instance.amount}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Start Date
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{instance.start_date}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						End Date
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{instance.end_date}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Email
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{user.email}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Repayment
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{instance.repayment}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Phone
+					</th>
+					<td colspan="2" rowspan="" headers="">
+						{{instance.phone}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Reference
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{instance.reference}}
+					</td>
+				</tr>
+				
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Status
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{instance.status}}
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3" rowspan="" headers="" scope="">
+						Publish Date
+					</th>
+					<td colspan="4" rowspan="" headers="">
+						{{instance.created_date}}
+					</td>
+				</tr>
+		</table>
+		<hr>
+	</div>
+	<div class="col-md-4">
+		
+	</div>
+	</div>
+	<div class="col-md-12">
+		<a href="{% url 'loans_app:create_loan' %}">
+			<button type="button" class="btn btn-primary">Create New loan</button>
+		</a>
+		<a href="{% url 'loans_app:edit_loan' slug=instance.slug %}">
+			<button type="button" class="btn btn-success">Eidt or Update</button>
+		</a>
+		<a href="{% url 'loans_app:delete_loan' slug=instance.slug %}">
+			<button type="button" class="btn btn-danger">Delete Loan</button>
+		</a>
+		<a href="{% url 'loans_app:list_loan' %}">
+			<button type="button" class="btn btn-warning pull-right">View all loans</button>
+		</a>
+		<br>
+		<br>
+		<hr>
+	</div>
+
+</div>
+{% endblock %}

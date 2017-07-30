@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import UserProfile 
+from .models import UserProfile, BusinessLoan 
 
 class UserProfileAdmin(admin.ModelAdmin):
 	list_display = ('id', 'user', 'address', 'city', 'postcode')
@@ -27,3 +27,4 @@ class UserProfileAdmin(admin.ModelAdmin):
 		]
 
 admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(BusinessLoan)

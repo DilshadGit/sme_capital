@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'loans_app',
     'registration',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
