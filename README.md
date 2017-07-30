@@ -20,5 +20,5 @@ I have used slug to display the title in the url I could used just id or pk but 
 
 There registered User:
 Username: admin, Password: _Admin_123
-Username: admin, Password: _Admin_123
-Username: admin, Password: _Admin_123
+Username: staff, Password: _Admin_123
+Username: user_only, Password: _Admin_123
