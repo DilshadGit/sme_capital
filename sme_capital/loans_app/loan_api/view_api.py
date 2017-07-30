@@ -58,8 +58,7 @@ class BusinessLoanListAPIView(ListAPIView):
 	queryset = BusinessLoan.objects.all()
 	serializer_class = BusinessLoanListSerializer
 
-	# def get_queryset():
-	# 	return 
+
 
 
 
