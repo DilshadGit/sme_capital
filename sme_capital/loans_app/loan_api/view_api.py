@@ -12,6 +12,7 @@ from rest_framework.generics import (
 	UpdateAPIView,
 	RetrieveUpdateAPIView,
 )
+
 from rest_framework.permissions import (
 	AllowAny,
 	IsAuthenticated,
@@ -21,6 +22,10 @@ from rest_framework.permissions import (
 )
 
 from loans_app.models import BusinessLoan
+from .pagination_api import ( 
+	BusniessLoanOffsetPagination,
+	BusinessLoanPageNumberPagination,
+)
 from .user_permit import IsOwnerOrReadOnly
 from .serializers import ( 
 	BusinessLoanCreateSerializer,
@@ -32,7 +37,7 @@ from .serializers import (
 class BusinessLoanCreateAPIView(CreateAPIView):
 	queryset = BusinessLoan.objects.all()
 	serializer_class = BusinessLoanCreateSerializer
-	permission_classes = [IsAuthenticated, IsAdminUser]
+	permission_classes = [IsAuthenticated]
 
 	# this is display the user name when create new api
 	def perform_create(self, serializer):
@@ -58,6 +63,7 @@ class BusinessLoanDeleteAPIView(DestroyAPIView):
 	queryset = BusinessLoan.objects.all()
 	serializer_class = BusinessLoanDetailSerializer
 	lookup_field = 'slug'
+	permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
 class BusinessLoanListAPIView(ListAPIView):
@@ -65,6 +71,8 @@ class BusinessLoanListAPIView(ListAPIView):
 	serializer_class = BusinessLoanListSerializer
 	filter_backebds = [SearchFilter, OrderingFilter]
 	search_fields = ['title', 'reference', 'start_date', 'end_date']
+	# pagination_class = BusniessLoanOffsetPagination # PageNumberPagination
+	pagination_class = BusinessLoanPageNumberPagination
 
 	def get_queryset(self, *args, **kwargs):
 		querysets = BusinessLoan.objects.all()
