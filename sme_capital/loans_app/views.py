@@ -4,12 +4,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User 
 from .models import UserProfile, BusinessLoan
 from .forms import EditProfileForm, BusinessLoanForm
+from django.contrib.auth.decorators import login_required
 
 
 def profile(request, pk=None):
-	if not request.user.is_authenticated or not request.user.is_staff\
-		or not request.user.is_superuser:
-		raise Http404
 
 	if pk:
 		user = User.objects.get(pk=pk)
@@ -22,10 +20,8 @@ def profile(request, pk=None):
 	return render(request, 'profile.html', context)
 
 
+@login_required
 def edit_profile(request):
-	if not request.user.is_authenticated or not request.user.is_staff\
-		or not request.user.is_superuser:
-		raise Http404
 
 	if request.method == 'POST':
 		edit_form = EditProfileForm(request.POST, instance=request.user)
@@ -42,10 +38,8 @@ def edit_profile(request):
 	return render(request, 'edit_profile.html', context)
 
 
+@login_required
 def create_loan(request):
-	if not request.user.is_authenticated or not request.user.is_staff\
-		or not request.user.is_superuser:
-		raise Http404
 	form = BusinessLoanForm(request.POST or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
@@ -61,10 +55,8 @@ def create_loan(request):
 	return render(request, 'create_loans.html', context)
 
 
+
 def loan_detail(request, slug=None):
-	if not request.user.is_authenticated or not request.user.is_staff\
-		or not request.user.is_superuser:
-		raise Http404
 	instance = get_object_or_404(BusinessLoan, slug=slug)
 	context = {
 		'instance': instance,
@@ -73,9 +65,6 @@ def loan_detail(request, slug=None):
 
 
 def loan_list(request):
-	if not request.user.is_authenticated or not request.user.is_staff\
-		or not request.user.is_superuser:
-		raise Http404
 	loans = BusinessLoan.objects.all()
 
 	context = {
@@ -84,10 +73,8 @@ def loan_list(request):
 	return render(request, 'loan_list.html', context)
 
 
+@login_required
 def loan_edit(request, slug=None):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
-
 	instance = get_object_or_404(BusinessLoan, slug=slug)
 	form = BusinessLoanForm(request.POST or None, instance=instance)
 	if form.is_valid():
@@ -102,12 +89,8 @@ def loan_edit(request, slug=None):
 	}
 	return render(request, 'edit_loan.html', context)
 
-
+@login_required
 def loan_delete(request, slug=None):
-	if not request.user.is_authenticated or not request.user.is_staff\
-		or not request.user.is_superuser:
-		raise Http404
-		
 	instance = get_object_or_404(BusinessLoan, slug=slug)
 	instance.delete()
 	messages.success(request, 'The loan has been deleted!')

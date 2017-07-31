@@ -29,10 +29,9 @@
 	</div>
 	{% if request.title.id is None %}
 	<div class="col-md-12">
-		<h3>Create Loan</h3>
-		<p>You are currently have no any loan if you want create new loan please follow the process</p>
+				
 		<a href="{% url 'loans_app:create_loan' %}">
-			<button type="button" class="btn btn-primary">Create New loan</button>
+			<button type="button" class="btn btn-success pull-right">Create New loan</button>
 		</a>
 	</div>
 	{% else %}

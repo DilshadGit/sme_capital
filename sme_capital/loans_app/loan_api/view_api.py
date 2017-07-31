@@ -1,3 +1,9 @@
+from django.db.models import Q
+
+from rest_framework.filters import (
+	SearchFilter,
+	OrderingFilter,
+)
 from rest_framework.generics import ( 
 	CreateAPIView,
 	DestroyAPIView,
@@ -55,8 +61,22 @@ class BusinessLoanDeleteAPIView(DestroyAPIView):
 
 
 class BusinessLoanListAPIView(ListAPIView):
-	queryset = BusinessLoan.objects.all()
+	
 	serializer_class = BusinessLoanListSerializer
+	filter_backebds = [SearchFilter, OrderingFilter]
+	search_fields = ['title', 'reference', 'start_date', 'end_date']
+
+	def get_queryset(self, *args, **kwargs):
+		querysets = BusinessLoan.objects.all()
+		query = self.request.GET.get('q')
+		if query:
+			querysets = querysets.filter(
+				Q(title__icontains=query)|
+				Q(reference__icontains=query)|
+				Q(start_date__icontains=query)|
+				Q(end_date__icontains=query)
+			).distinct()
+		return querysets
 
 
 
