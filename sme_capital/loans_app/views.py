@@ -55,7 +55,7 @@ def create_loan(request):
 	return render(request, 'create_loans.html', context)
 
 
-
+@login_required
 def loan_detail(request, slug=None):
 	instance = get_object_or_404(BusinessLoan, slug=slug)
 	context = {
@@ -64,6 +64,7 @@ def loan_detail(request, slug=None):
 	return render(request, 'loan_detail.html', context)
 
 
+@login_required
 def loan_list(request):
 	loans = BusinessLoan.objects.all()
 
