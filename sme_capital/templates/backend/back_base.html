@@ -1,0 +1,38 @@
+{% load static %}
+{% load bootstrap_tags %}
+{% block style %} {% endblock style %}
+
+{% include 'backend/back_header.html' %}
+{% include 'backend/back_navbar.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active text-center"><a href="{% url 'index' %}">
+              Home</a>
+              <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="text-center"><a href="{% url 'loans_app:profile' %}">Profile 
+            </li>
+            <li class="text-center"><a href="{% url 'loans_app:list_loan' %}">Loans</a>
+            <li class="text-center"><a href="{% url 'loans_api:list_api' %}">API</a>
+            </li>
+            <li class="text-center"><a href="#">History</a></li>
+          </ul>
+          
+        </div>
+        
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">CMS</h1>
+        </div>
+          {# include 'backend/messages.html' #}
+          {% block content %}
+
+          {% endblock content %}
+
+        </div>
+      </div>
+    </div>
+  
+    {% include 'backend/back_footer.html' %}

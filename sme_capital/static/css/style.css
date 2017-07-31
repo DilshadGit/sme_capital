@@ -1,34 +1,34 @@
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
 	/*background-color: #003d66;*/
-	background-color: #0066ff;
-	color: #ffff00;
+	background-color: #0059b3;
+	color: #fff;
 }
 
 .navbar-inverse {
-    background-color: #0066ff;
+    background-color: #0059b3;
     border-color: #080808;
-    color: #ffff00;
+    color: #fff;
 }
 
 .navbar-inverse .navbar-brand {
-	color: #ffff00;
+	color: #fff;
 }
 
 .navbar-inverse .navbar-nav>li>a {
-	color: #ffff00;
+	color: #fff;
 }
 
 
 footer.container-fluid {
-	background-color: #0066ff;
+	background-color: #0059b3;
 }
 
 footer.container-backend {
-	background-color: #0066ff;
+	background-color: #0059b3;
 }
 
 footer {
-	color: #ffff00;
+	color: #fff;
 }
 
 
@@ -68,8 +68,8 @@ div.col-md-4.backend p.text-center {
 .navbar-inverse .navbar-nav>.active>a, 
 .navbar-inverse .navbar-nav>.active>a:focus, 
 .navbar-inverse .navbar-nav>.active>a:hover {
-    color: #0066ff;
-    background-color: #ffff00;
+    color: #0059b3;
+    background-color: #fff;
     text-transform: uppercase;
     font-weight: bold;
 }
