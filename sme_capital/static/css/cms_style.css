@@ -15,7 +15,7 @@
 	width: 100%;
 }
 
-footer.container-backend :{
+footer.container-backend, div.row.backend {
 	background-color: #003366;
 }
 

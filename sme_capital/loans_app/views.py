@@ -17,7 +17,7 @@ def profile(request, pk=None):
 	context = {
 		'user': user,
 	}
-	return render(request, 'profile.html', context)
+	return render(request, 'backend/profile.html', context)
 
 
 @login_required

@@ -19,5 +19,7 @@ urlpatterns = [
 	url(r'^list/$', views.loan_list, name='list_loan'),   
 	url(r'^(?P<slug>[\w-]+)/$', views.loan_detail, name='detail_loan'),   
 	url(r'^(?P<slug>[\w-]+)/edit/$', views.loan_edit, name='edit_loan'),   
-	url(r'^(?P<slug>[\w-]+)/delete/$', views.loan_delete, name='delete_loan'),   
+	url(r'^(?P<slug>[\w-]+)/delete/$', views.loan_delete, name='delete_loan'), 
+
+	## cms  pages ##  
 ]
