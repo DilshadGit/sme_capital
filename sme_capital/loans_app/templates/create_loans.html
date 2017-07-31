@@ -1,22 +1,52 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load bootstrap3 %}
-{% load bootstrap_tags %}
-{% block style %} {% endblock style %}
+{% if request.user.is_staff and request.user.is_superuser %}
 
-{% block content %}
-<div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
-		<form method="POST" action='' class="form-signin">
-			<h3 class="form-signin-heading text-center">Create Loans</h3>
+	{% extends 'backend/back_base.html' %}
+	{% load static %}
+	{% load bootstrap3 %}
+	{% load bootstrap_tags %}
+	{% block style %} {% endblock style %}
 
-			{% csrf_token %}
-			{{form|as_bootstrap}}
-			
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-		<br>
+	{% block content %}
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<form method="POST" action='' class="form-signin">
+				<h3 class="form-signin-heading text-center">Create Loans</h3>
+
+				{% csrf_token %}
+				{{form|as_bootstrap}}
+				
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<br>
+		</div>
 	</div>
-</div>
 
-{% endblock content %}
+	{% endblock content %}
+
+{% else %}
+
+	{% extends 'base.html' %}
+	{% load static %}
+	{% load bootstrap3 %}
+	{% load bootstrap_tags %}
+	{% block style %} {% endblock style %}
+
+	{% block content %}
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<form method="POST" action='' class="form-signin">
+				<h3 class="form-signin-heading text-center">Create Loans</h3>
+
+				{% csrf_token %}
+				{{form|as_bootstrap}}
+				
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<br>
+		</div>
+	</div>
+
+	{% endblock content %}
+
+
+{% endif %}
